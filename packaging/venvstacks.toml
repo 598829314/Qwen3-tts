@@ -1,0 +1,37 @@
+[[runtimes]]
+name = "cpython-3.12"
+python_implementation = "cpython@3.12.13"
+requirements = []
+platforms = [
+    "macosx_arm64",
+]
+
+[[frameworks]]
+name = "qwen3-tts-framework"
+runtime = "cpython-3.12"
+requirements = [
+    "mlx-audio==0.4.1",
+    "fastapi>=0.116.0",
+    "uvicorn>=0.35.0",
+    "python-multipart>=0.0.20",
+]
+platforms = [
+    "macosx_arm64",
+]
+
+[[applications]]
+name = "qwen3-tts-app"
+launch_module = "qwen3_tts_app"
+frameworks = ["qwen3-tts-framework"]
+requirements = [
+    "pyobjc-core>=12.1",
+    "pyobjc-framework-Cocoa>=12.1",
+]
+platforms = [
+    "macosx_arm64",
+]
+
+[tool.uv]
+environments = [
+    "sys_platform == 'darwin' and platform_machine == 'arm64'",
+]
