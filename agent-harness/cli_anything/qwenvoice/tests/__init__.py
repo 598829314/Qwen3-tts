@@ -1,0 +1,3 @@
+"""
+QwenVoice CLI Test Suite
+"""
